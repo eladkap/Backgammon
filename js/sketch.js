@@ -9,6 +9,7 @@ var game;
 
 function SetGame() {
   game = new Game();
+  game.Reset();
 }
 
 /* MAIN */

@@ -39,7 +39,7 @@ class Board {
     let index = 1;
 
     /* Draw bottom triangles */
-    let dir = "bottom";
+    let dir = 1;
     let backColor = TRIANGLE1;
     for (let i = 1; i <= TRIANGLES_NUMBER_IN_SECTOR; i++) {
       backColor = i % 2 == 0 ? TRIANGLE1 : TRIANGLE2;
@@ -61,7 +61,7 @@ class Board {
     }
 
     /* Draw top triangles */
-    dir = "top";
+    dir = -1;
     x += TRIANGLE_WIDTH;
     y = BOARD_Y + BORDER_SIZE * 0.5;
     for (let i = 1; i <= TRIANGLES_NUMBER_IN_SECTOR; i++) {
@@ -87,6 +87,15 @@ class Board {
   }
 
   Reset() {
-    this.triangles[0].AddCheckers(checker);
+    let p1 = 1;
+    let p2 = 2;
+    this.triangles[0].SetCheckersNum(2, p2);
+    this.triangles[11].SetCheckersNum(5, p2);
+    this.triangles[16].SetCheckersNum(3, p2);
+    this.triangles[18].SetCheckersNum(5, p2);
+    this.triangles[23].SetCheckersNum(2, p1);
+    this.triangles[12].SetCheckersNum(5, p1);
+    this.triangles[7].SetCheckersNum(3, p1);
+    this.triangles[5].SetCheckersNum(5, p1);
   }
 }
