@@ -11,14 +11,15 @@ class Game {
       ANTIQUEWHITE
     );
     this.dices = this.CreateDices();
-    // this.btnRoll = new Button(
-    //   BOARD_X + BOARD_WIDTH / 4,
-    //   BOARD_Y + BOARD_HEIGHT / 2,
-    //   200,
-    //   100,
-    //   "Roll Dice",
-    //   this.RollDice
-    // );
+    this.currTurn = 0;
+    this.btnRollDice = SetButton(
+      BOARD_X + BOARD_WIDTH / 6,
+      BOARD_Y + BOARD_HEIGHT / 2.2,
+      "Roll Dice",
+      "60px",
+      ROYAL,
+      this.RollDice
+    );
   }
 
   Draw() {

@@ -8,16 +8,13 @@ class Dice {
   }
 
   Draw() {
-    ctx.lineWidth = 1;
-    ctx.fillStyle = this.backColor;
-    ctx.strokeStyle = GRAY1;
-    ctx.beginPath();
-    ctx.rect(this.pos.x, this.pos.y, this.w, this.w);
-    ctx.fill();
-    ctx.stroke();
+    strokeWeight(1);
+    fill(this.backColor);
+    stroke(GRAY1);
+    rect(this.pos.x, this.pos.y, this.w, this.w);
 
     // Draw dots
-    ctx.fillStyle = BLACK;
+    fill(BLACK);
     if (this.value == 1) {
       this.DrawCenterDot();
     } else if (this.value == 2) {
@@ -32,7 +29,6 @@ class Dice {
       this.DrawBottomRightDot();
       this.DrawTopRightDot();
       this.DrawTopLeftDot();
-      ctx.closePath();
     } else if (this.value == 5) {
       this.DrawCenterDot();
       this.DrawBottomLeftDot();
@@ -50,80 +46,60 @@ class Dice {
   }
 
   DrawCenterDot() {
-    ctx.beginPath();
-    ctx.arc(this.cpos.x, this.cpos.y, DICE_DOT_RADIUS, 0, 2 * Math.PI);
-    ctx.fill();
+    ellipse(this.cpos.x, this.cpos.y, DICE_DOT_RADIUS, DICE_DOT_RADIUS);
   }
 
   DrawTopCenterDot() {
-    ctx.beginPath();
-    ctx.arc(
+    ellipse(
       this.cpos.x,
       this.cpos.y - this.w / 4,
       DICE_DOT_RADIUS,
-      0,
-      2 * Math.PI
+      DICE_DOT_RADIUS
     );
-    ctx.fill();
   }
 
   DrawBottomCenterDot() {
-    ctx.beginPath();
-    ctx.arc(
+    ellipse(
       this.cpos.x,
       this.cpos.y + this.w / 4,
       DICE_DOT_RADIUS,
-      0,
-      2 * Math.PI
+      DICE_DOT_RADIUS
     );
-    ctx.fill();
   }
 
   DrawTopLeftDot() {
-    ctx.beginPath();
-    ctx.arc(
+    ellipse(
       this.cpos.x - this.w / 4,
       this.cpos.y - this.w / 4,
       DICE_DOT_RADIUS,
-      0,
-      2 * Math.PI
+      DICE_DOT_RADIUS
     );
-    ctx.fill();
   }
 
   DrawTopRightDot() {
-    ctx.beginPath();
-    ctx.arc(
+    ellipse(
       this.cpos.x + this.w / 4,
       this.cpos.y - this.w / 4,
       DICE_DOT_RADIUS,
-      0,
-      2 * Math.PI
+      DICE_DOT_RADIUS
     );
-    ctx.fill();
   }
 
   DrawBottomLeftDot() {
-    ctx.beginPath();
-    ctx.arc(
+    ellipse(
       this.cpos.x - this.w / 4,
       this.cpos.y + this.w / 4,
       DICE_DOT_RADIUS,
-      0,
-      2 * Math.PI
+      DICE_DOT_RADIUS
     );
-    ctx.fill();
   }
 
   DrawBottomRightDot() {
-    ctx.beginPath();
-    ctx.arc(
+    ellipse(
       this.cpos.x + this.w / 4,
       this.cpos.y + this.w / 4,
       DICE_DOT_RADIUS,
-      0,
-      2 * Math.PI
+      DICE_DOT_RADIUS
     );
-    ctx.fill();
   }
 }

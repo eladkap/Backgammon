@@ -6,12 +6,13 @@ class Checker {
   }
 
   Draw() {
-    ctx.lineWidth = 1;
-    ctx.strokeStyle = BLACK;
-    ctx.fillStyle = this.player == 1 ? PLAYER1 : PLAYER2;
-    ctx.beginPath();
-    ctx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI);
-    ctx.fill();
-    ctx.stroke();
+    strokeWeight(1);
+    stroke(BLACK);
+    if (this.player == 1) {
+      fill(PLAYER1);
+    } else {
+      fill(PLAYER2);
+    }
+    ellipse(this.pos.x, this.pos.y, 2 * this.radius, 2 * this.radius);
   }
 }

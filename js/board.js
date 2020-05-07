@@ -10,18 +10,18 @@ class Board {
   }
 
   Draw() {
-    ctx.lineWidth = this.borderSize;
-    ctx.strokeStyle = this.borderColor;
-    ctx.fillStyle = this.backColor;
-    ctx.beginPath();
-    ctx.rect(this.pos.x, this.pos.y, this.w, this.h);
-    ctx.fillRect(this.pos.x, this.pos.y, this.w, this.h);
-    ctx.strokeRect(this.pos.x, this.pos.y, this.w, this.h);
+    strokeWeight(this.borderSize);
+    stroke(this.borderColor);
+    fill(this.backColor);
+    rect(this.pos.x, this.pos.y, this.w, this.h);
 
     /* Middle line */
-    ctx.moveTo(this.pos.x + this.w / 2, this.pos.y);
-    ctx.lineTo(this.pos.x + this.w / 2, this.pos.y + this.h);
-    ctx.stroke();
+    line(
+      this.pos.x + this.w / 2,
+      this.pos.y,
+      this.pos.x + this.w / 2,
+      this.pos.y + this.h
+    );
 
     /* Draw triangles */
     for (let triangle of this.triangles) {

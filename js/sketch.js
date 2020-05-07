@@ -1,9 +1,3 @@
-var canvas = document.getElementById("main");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-var ctx = canvas.getContext("2d");
-
 /* GLOBALS */
 var game;
 
@@ -13,15 +7,11 @@ function SetGame() {
 }
 
 /* MAIN */
-function Setup() {
+function setup() {
+  createCanvas(windowWidth, windowHeight);
   SetGame();
 }
 
-function Draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+function draw() {
   game.Draw();
-  requestAnimationFrame(Draw);
 }
-
-Setup();
-requestAnimationFrame(Draw);
