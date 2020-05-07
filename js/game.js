@@ -1,6 +1,5 @@
 class Game {
   constructor() {
-    //borderSize, borderColor, backColor
     this.board = new Board(
       BOARD_X,
       BOARD_Y,
@@ -12,14 +11,6 @@ class Game {
     );
     this.dices = this.CreateDices();
     this.currTurn = 0;
-    this.btnRollDice = SetButton(
-      BOARD_X + BOARD_WIDTH / 6,
-      BOARD_Y + BOARD_HEIGHT / 2.2,
-      "Roll Dice",
-      "60px",
-      ROYAL,
-      this.RollDice
-    );
   }
 
   Draw() {
@@ -38,15 +29,18 @@ class Game {
     let x = DICE_X;
     let y = DICE_Y;
     for (let i = 0; i < 2; i++) {
-      let value = RandomInt(6);
-      let dice = new Dice(x, y, DICE_WIDTH, value, WHITE);
+      let dice = new Dice(x, y, DICE_WIDTH, WHITE);
       dices.push(dice);
       x += DICE_WIDTH * 1.5;
     }
     return dices;
   }
 
-  RollDice() {
-    console.log("Roll dice");
+  RollDices() {
+    console.log("Roll dices");
+    for (let dice of this.dices) {
+      dice.Roll();
+      dice.Show();
+    }
   }
 }
